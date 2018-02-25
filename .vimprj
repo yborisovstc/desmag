@@ -1,0 +1,97 @@
+desa=/home/yborisov/projects/fap/desa CD=. filter="autogen.sh Makefile.am configure.ac AUTHORS COPYING ChangeLog README NEWS *.in {
+autogen.sh
+Makefile.am
+configure.ac
+AUTHORS
+COPYING
+ChangeLog
+README
+NEWS
+libdesa.pc.in
+src=src CD=. filter="*.h *.cpp *.dtd Makefile.am" {
+ connpoint.h
+  mconnpoint.h
+  mdes.h
+  miface.h
+  state.h
+  system.h
+  connpoint.cpp
+  state.cpp
+  system.cpp
+  Makefile.am
+} 
+etc=etc CD=. filter="*" {
+}
+debian=debian CD=. filter="*" {
+}
+doc=doc CD=. filter="*" {
+ requirements=requirements CD=. filter="*" {
+  desa_req.xml
+ }
+ design=design CD=. filter="*" {
+  fap_design.xml
+ }
+}
+test=test CD=. filter="*.cpp *.h *.xml *.am" {
+  ut_base.cpp
+  ut_main.cpp
+  ut_regex.cpp
+  Makefile.am
+  libs=.libs CD=. filter="*" {
+   ut-fapws-lib
+  }
+}
+samples=samples CD=. filter="*.cpp *.h *.xml *.am" {
+  mutag=mutag CD=. filter="*" {
+   ut-fapws-lib
+  }
+}
+}
+desmag=/home/yborisov/projects/fap/desmag CD=. filter="autogen.sh Makefile.am configure.ac AUTHORS COPYING ChangeLog README NEWS *.in {
+Makefile.am
+configure.ac
+AUTHORS
+COPYING
+ChangeLog
+README
+NEWS
+src=src CD=. filter="*.h *.cpp *.dtd Makefile.am" {
+  chromo.h
+  chromox.h
+  elem.h
+  env.h
+  mchromo.h
+  melem.h
+  menv.h
+  mplugin.h
+  mprov.h
+  prov.h
+  provdef.h
+  provmgr.h
+  chromo.cpp
+  chromox.cpp
+  elem.cpp
+  env.cpp
+  prov.cpp
+  provdef.cpp
+  provmgr.cpp
+  Makefile.am
+} 
+etc=etc CD=. filter="*" {
+}
+debian=debian CD=. filter="*" {
+}
+doc=doc CD=. filter="*" {
+ requirements=requirements CD=. filter="*" {
+  desa_req.xml
+ }
+ design=design CD=. filter="*" {
+  fap_design.xml
+ }
+}
+test=test CD=. filter="*.cpp *.h *.xml *.am" {
+  ut_base.cpp
+  ut_main.cpp
+  Makefile.am
+}
+}

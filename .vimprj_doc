@@ -1,0 +1,10 @@
+desmag_docs=/home/yborisov/projects/fap/desmag/doc CD=. filter="*" {
+ requirements=requirements CD=. filter="*.xml Makefile" {
+  desmag_req.xml
+  Makefile
+ }
+ design=design CD=. filter="*.xml Makefile" {
+  desmag_design.xml
+  Makefile
+ }
+}
