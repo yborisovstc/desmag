@@ -112,6 +112,12 @@
 	    <simpara>We need not just implement particular interface asynchronously but also change interface itself. For instance the method that directly
 		returns some data needs to be re-organized with usage of client-observer.</simpara>
 	</sect2>
+	<sect2 id="ds_intro_asub"><title>Processes interactions: async, unblocked</title>
+	    <simpara>There are two separate characterisations of processes interactions: sync and blocking. Typically two process interaction is 
+		considering sync when the processes are in one processor thread. Bloked interaction is the case when the process are async but one
+		process is blocked waiting some event from another process. "Fap-srv" project shows the example of async but blocking processes.</simpara>
+	    <simpara>Ref <xref linkend="ds_asub"/> for design details.</simpara>
+	</sect2>
     </sect1>
 
     <sect1 id="ds_chaci"><title>Analysis: changing agents content interaction</title>
@@ -437,6 +443,20 @@
 	</sect2>
     </sect1>
 
+    <sect1 id="ds_asub"><title>Processes interactions: async, unblocked</title>
+	<sect2><title>Intro</title>
+	    <simpara>As introdiced in <xref linkend="ds_intro_asub"/> sync and blocking are separate characterisation of interacting process.</simpara>
+	</sect2>
+	<sect2><title>Evaluation of process (sync + blocking)</title>
+	    <sect3><title>Does unblocking process give a real profit?</title>
+		<simpara>Let's look at the example where N async service processes are controlled by single client process. Let's assume that some on those N processes are
+		    slow. Clinet process issues the requests to service processes and waiting for response. If client process uses blocking interactions than
+		    the client requests 1st service, waits response, then 2nd, etc. It's clear that in this case the common time of getting response is bigger that in
+		    case of unblocking interactions where client first issues requests to all requests and than waits the responses coming.</simpara>
+	    </sect3>
+	</sect2>
+    </sect1>
+
     <sect1 id="cr"><title>Change requests</title>
 	<sect2 id="cr_001"><title>Error handling: notification of dangling output on state confirmation</title>
 	    <sect3>Requirements
@@ -456,10 +476,18 @@
 	</sect2>
     </sect1>
 
-    <sect1><title>The whole system as DES</title>
-	<simpara>The initial idea of creating multi agent element basing on low-level DES (ref <xref linkend="ds_intro_i"/>) has a logical conflict.
-	    The whole system has to be implemented as low-level DES in that case, but not separate element. This is because the DES nature of interface of
-	element can be utilize only in the scope of parent system, i.e. the system cycle has to be working.</simpara>
+    <sect1 id="ds_wsad"><title>The whole system as DES</title>
+	<sect2><title>Intro</title>
+	    <simpara>The initial idea of creating multi agent element basing on low-level DES (ref <xref linkend="ds_intro_i"/>) has a logical conflict.
+		The whole system has to be implemented as low-level DES in that case, but not separate element. This is because the DES nature of interface of
+		element can be utilize only in the scope of parent system, i.e. the system cycle has to be working.</simpara>
+	</sect2>
+	<sect2 id="ds_wsad_hdne"><title>Is it really un-realistic to hide DES nature of elem</title>
+	    <sect2><title>Intro</title>
+		<simpara>In original multiagent framework "des" the most primitive part was "Elem". Main idea of Deamag project was to implement Elem 
+		    using "async" methods. It was assumed that the mechanism of that implementation is DES framework "desa". </simpara>
+	    </sect2>
+	</sect2>
     </sect1>
 
     <sect1 id="ds_th"><title>To handle</title>

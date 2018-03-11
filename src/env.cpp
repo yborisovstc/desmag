@@ -12,7 +12,7 @@ Env::Env(const string& aChromoPath, const string& aLogFilePath): MBase("Env"),
     mChromoPath(aChromoPath), mProvider(nullptr), mOutChromo(nullptr)
 {
     mProvider = new ProvidersMgr("Provider", this);
-    mOutChromo = new TConnPoint<MStateNotifier, MStateObserver<ChromoX>>("OutChromo", MConnPoint::EOutput, mChromoOutHandler);
+    mOutChromo = new TConnPoint<MStateNotifier, MStateObserver<ChromoX>>("OutChromo", nullptr, MConnPoint::EOutput, mChromoOutHandler);
 }
 
 Env::~Env()
